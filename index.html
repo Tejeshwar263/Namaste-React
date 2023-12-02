@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Namaste React</title>
+    <title>Nameste React</title>
 </head>
+
 <body>
-    <div id="root">
-    </div>
+    <div id="root"></div>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script>
-        const heading = React.createElement("h1",{},"Hello World from React")
+        const child1 = React.createElement("h2",{id:"child1"}, "hello from child1")
+        const child2 = React.createElement("h2",{id:"child2"},"hello from child1")
+
+        const heading1 = React.createElement("h1",{id:"heading1"},[child1, child2])
+
+        const heading2 = React.createElement("h1",{id:"heading2"},[child1, child2])
+
+        const parent = React.createElement("div",{id:"parent"},[heading1, heading2])
+
         const root = ReactDOM.createRoot(document.getElementById("root"))
-        root.render(heading);
-        
+        root.render(parent)
     </script>
 </body>
+
 </html>
